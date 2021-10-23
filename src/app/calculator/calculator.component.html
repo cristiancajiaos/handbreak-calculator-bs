@@ -1,0 +1,40 @@
+<form [formGroup]="bitrateForm" (submit)="calculateBitrate()">
+  <div class="form-group mb-2">
+    <label for="size">Peso deseado (en MB)</label>
+    <div class="input-group">
+      <input type="number" class="form-control" id="size" name="size" formControlName="size"/>
+      <span class="input-group-text">MB</span>
+    </div>
+    <small class="text-danger" *ngIf="checkValidityField('size')">Este campo es obligatorio</small>
+  </div>
+  <div class="form-group mb-2">
+    <label for="runtime">Duración del video (en segundos)</label>
+    <div class="input-group">
+      <input type="number" class="form-control" id="runtime" name="runtime" formControlName="runtime" />
+      <span class="input-group-text">s</span>
+    </div>
+    <small class="text-danger" *ngIf="checkValidityField('runtime')">Este campo es obligatorio</small>
+  </div>
+  <div class="form-group mb-4">
+    <label for="audioBitrate">Bitrate del audio (en kbps)</label>
+    <div class="input-group">
+      <input type="number" class="form-control" id="audioBitrate" name="audioBitrate" formControlName="audioBitrate" />
+      <span class="input-group-text">kbps</span>
+    </div>
+    <small class="text-danger" *ngIf="checkValidityField('audioBitrate')">Este campo es obligatorio</small>
+  </div>
+  <div class="form-group">
+    <div class="d-flex justify-content-between">
+      <button type="submit" class="btn btn-primary" [disabled]="bitrateForm.invalid">
+        Calcular
+      </button>
+      <button type="button" class="btn btn-danger" (click)="resetForm()">
+        Resetear formulario
+      </button>
+    </div>
+  </div>
+</form>
+<div class="text-center" *ngIf="videoBitrate">
+  <hr/>
+  <p>Bitrate de video a introducir en Handbreak: <strong>{{videoBitrate}}</strong> kbps</p>
+</div>
