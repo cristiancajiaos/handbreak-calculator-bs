@@ -1,5 +1,37 @@
-<div class="modal-header"></div>
-<div class="modal-body">
-  <p>help works!</p>
+<div class="modal-header bg-info">
+  <h5 class="modal-title"><i class="fas fa-question-circle fa-fw"></i> Ayuda</h5>
+  <button type="button" class="btn-close" (click)="closeModal()" aria-label="Close">
+  </button>
 </div>
-<div class="modal-footer"></div>
+<div class="modal-body">
+  <section class="formula">
+    <h3>Forma de calcular</h3>
+    <p>El bitrate de video que se debe especificar en Handbreak, se calcula de la siguiente forma:</p>
+    <div class="text-center">
+      <img src="assets/img/ecuacionbitrate.png" />
+    </div>
+    <p>Donde:</p>
+    <ul>
+      <li><strong>pesoVideo</strong> es el tamaño deseado del video, en <strong>MB</strong></li>
+      <li><strong>duracionVideo</strong> es la duración del video, en <strong>segundos</strong></li>
+      <li><strong>bitrateAudio</strong> es el bitrate del audio del video, en <strong>kilobytes por segundo
+          (kbps)</strong></li>
+    </ul>
+  </section>
+  <hr/>
+  <section class="example">
+    <h3>Ejemplo</h3>
+    <p>Se desea crear con Handbreak un <strong>archivo de video de 200 MB</strong> a partir de un episodio de una serie de televisión en DVD
+      que <strong>dura 22 minutos</strong>. Dicho archivo de audio se desea con un <strong>bitrate de audio de 128 kbps</strong>.</p>
+    <p>A partir de la información dada:</p>
+    <div class="text-center">
+      <img src="assets/img/ejemplobitrate.png" />
+    </div>
+    <p>Por ende, el bitrate de video que hay que especificar en Handbreak es de <strong>1114 kbps</strong>.</p>
+  </section>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-danger" (click)="closeModal()">
+    Cerrar
+  </button>
+</div>

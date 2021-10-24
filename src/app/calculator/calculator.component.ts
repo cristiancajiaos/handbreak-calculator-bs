@@ -28,7 +28,7 @@ export class CalculatorComponent implements OnInit {
   }
 
   openHelp(): void {
-    this.modal.open(HelpComponent);
+    this.modal.open(HelpComponent, {size:'lg'});
   }
 
   checkValidityField(field: string): boolean {

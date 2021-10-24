@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-help',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HelpComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private modal: NgbActiveModal
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  closeModal(): void {
+    this.modal.close();
   }
 
 }

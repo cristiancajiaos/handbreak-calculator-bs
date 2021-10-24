@@ -3,10 +3,10 @@
   <ul>
     <li>El peso del archivo</li>
     <li>La duración del video</li>
-    <li>El bitrate del audio, independientemente del formato de ese mismo audio</li>
+    <li>El bitrate del audio, independientemente del formato de audio</li>
   </ul>
-  <button class="btn btn-info">
-    <i class="fas fa-info-circle fa-fw"></i> Como funciona esta aplicación
+  <button class="btn btn-info" (click)="openHelp()">
+    <i class="fas fa-question-circle fa-fw"></i> Ayuda
   </button>
 </section>
 <hr/>
@@ -50,7 +50,7 @@
   </form>
   <div class="text-center" *ngIf="videoBitrate">
     <hr />
-    <p>Bitrate de video a introducir en Handbreak: <strong>{{videoBitrate}}</strong> kbps</p>
+    <p>Bitrate de video a introducir en Handbreak: <strong>{{videoBitrate}} kbps</strong></p>
   </div>
 
 </section>
