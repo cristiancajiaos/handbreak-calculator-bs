@@ -2,6 +2,7 @@ import { HelpComponent } from './help/help.component';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-calculator',
@@ -16,7 +17,8 @@ export class CalculatorComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private modal: NgbModal
+    private modal: NgbModal,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -44,5 +46,10 @@ export class CalculatorComponent implements OnInit {
   resetForm(): void {
     this.bitrateForm.reset();
     this.videoBitrate = null;
+  }
+
+  copyBitrateToClipboard(): void {
+    navigator.clipboard.writeText(this.videoBitrate.toString());
+    this.toastr.success('Bitrate de video copiado al portapapeles');
   }
 }
