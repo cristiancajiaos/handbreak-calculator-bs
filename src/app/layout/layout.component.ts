@@ -7,12 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LayoutComponent implements OnInit {
 
-  currentYear: number;
-
   constructor() { }
 
   ngOnInit(): void {
-    this.currentYear = new Date().getFullYear();
+
   }
 
 }

@@ -9,15 +9,15 @@ import { AppComponent } from './app.component';
 import { LayoutComponent } from './layout/layout.component';
 import { CalculatorComponent } from './calculator/calculator.component';
 import { HelpComponent } from './calculator/help/help.component';
-
-
+import { FooterComponent } from './layout/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LayoutComponent,
     CalculatorComponent,
-    HelpComponent
+    HelpComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
