@@ -1,0 +1,12 @@
+.layout {
+  padding: 5rem 1rem;
+  background-color: rgba(0,0,0,0.15);
+
+  @media screen and (max-width: 991px) {
+    width: 100%;
+  }
+
+  @media screen and (min-width: 991px) {
+    width: 50%;
+  }
+}

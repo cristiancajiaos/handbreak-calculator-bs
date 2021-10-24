@@ -1,3 +1,5 @@
+import { HelpComponent } from './help/help.component';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -14,6 +16,7 @@ export class CalculatorComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
+    private modal: NgbModal
   ) { }
 
   ngOnInit(): void {
@@ -22,6 +25,10 @@ export class CalculatorComponent implements OnInit {
       runtime: ['', Validators.required],
       audioBitrate: ['', Validators.required]
     });
+  }
+
+  openHelp(): void {
+    this.modal.open(HelpComponent);
   }
 
   checkValidityField(field: string): boolean {

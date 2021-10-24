@@ -1,40 +1,56 @@
-<form [formGroup]="bitrateForm" (submit)="calculateBitrate()">
-  <div class="form-group mb-2">
-    <label for="size">Peso deseado (en MB)</label>
-    <div class="input-group">
-      <input type="number" class="form-control" id="size" name="size" formControlName="size"/>
-      <span class="input-group-text">MB</span>
+<section class="how-to">
+  <p>Esta aplicación se creó para poder obtener el bitrate de video que se debe especificar en Handbreak para poder crear videos, de acuerdo a:</p>
+  <ul>
+    <li>El peso del archivo</li>
+    <li>La duración del video</li>
+    <li>El bitrate del audio, independientemente del formato de ese mismo audio</li>
+  </ul>
+  <button class="btn btn-info">
+    <i class="fas fa-info-circle fa-fw"></i> Como funciona esta aplicación
+  </button>
+</section>
+<hr/>
+<section class="calculator">
+  <form [formGroup]="bitrateForm" (submit)="calculateBitrate()">
+    <div class="form-group mb-2">
+      <label for="size">Peso deseado (en MB)</label>
+      <div class="input-group">
+        <input type="number" class="form-control" id="size" name="size" formControlName="size" />
+        <span class="input-group-text">MB</span>
+      </div>
+      <small class="text-danger" *ngIf="checkValidityField('size')">Este campo es obligatorio</small>
     </div>
-    <small class="text-danger" *ngIf="checkValidityField('size')">Este campo es obligatorio</small>
-  </div>
-  <div class="form-group mb-2">
-    <label for="runtime">Duración del video (en segundos)</label>
-    <div class="input-group">
-      <input type="number" class="form-control" id="runtime" name="runtime" formControlName="runtime" />
-      <span class="input-group-text">s</span>
+    <div class="form-group mb-2">
+      <label for="runtime">Duración del video (en segundos)</label>
+      <div class="input-group">
+        <input type="number" class="form-control" id="runtime" name="runtime" formControlName="runtime" />
+        <span class="input-group-text">s</span>
+      </div>
+      <small class="text-danger" *ngIf="checkValidityField('runtime')">Este campo es obligatorio</small>
     </div>
-    <small class="text-danger" *ngIf="checkValidityField('runtime')">Este campo es obligatorio</small>
-  </div>
-  <div class="form-group mb-4">
-    <label for="audioBitrate">Bitrate del audio (en kbps)</label>
-    <div class="input-group">
-      <input type="number" class="form-control" id="audioBitrate" name="audioBitrate" formControlName="audioBitrate" />
-      <span class="input-group-text">kbps</span>
+    <div class="form-group mb-4">
+      <label for="audioBitrate">Bitrate del audio (en kbps)</label>
+      <div class="input-group">
+        <input type="number" class="form-control" id="audioBitrate" name="audioBitrate"
+          formControlName="audioBitrate" />
+        <span class="input-group-text">kbps</span>
+      </div>
+      <small class="text-danger" *ngIf="checkValidityField('audioBitrate')">Este campo es obligatorio</small>
     </div>
-    <small class="text-danger" *ngIf="checkValidityField('audioBitrate')">Este campo es obligatorio</small>
-  </div>
-  <div class="form-group">
-    <div class="d-flex justify-content-between">
-      <button type="submit" class="btn btn-primary" [disabled]="bitrateForm.invalid">
-        Calcular
-      </button>
-      <button type="button" class="btn btn-danger" (click)="resetForm()">
-        Resetear formulario
-      </button>
+    <div class="form-group">
+      <div class="d-flex justify-content-between">
+        <button type="submit" class="btn btn-primary" [disabled]="bitrateForm.invalid">
+          Calcular
+        </button>
+        <button type="button" class="btn btn-danger" (click)="resetForm()">
+          Resetear formulario
+        </button>
+      </div>
     </div>
+  </form>
+  <div class="text-center" *ngIf="videoBitrate">
+    <hr />
+    <p>Bitrate de video a introducir en Handbreak: <strong>{{videoBitrate}}</strong> kbps</p>
   </div>
-</form>
-<div class="text-center" *ngIf="videoBitrate">
-  <hr/>
-  <p>Bitrate de video a introducir en Handbreak: <strong>{{videoBitrate}}</strong> kbps</p>
-</div>
+
+</section>
